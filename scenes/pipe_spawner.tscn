@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/pipe_spawner.gd" type="Script" id=1]
+[ext_resource path="res://scenes/pipe.tscn" type="PackedScene" id=2]
+
+[node name="PipeSpawner" type="Position2D"]
+script = ExtResource( 1 )
+spawn_cooldown = 2.0
+pipe_scene = ExtResource( 2 )
+
+[node name="SpawnerTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="SpawnerTimer" to="." method="on_spawner_timeout"]
